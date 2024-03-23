@@ -1,0 +1,55 @@
+2024-03-22 14:52:24,018 [h5py._conv] [DEBUG] Creating converter from 7 to 5
+2024-03-22 14:52:24,018 [h5py._conv] [DEBUG] Creating converter from 5 to 7
+2024-03-22 14:52:24,018 [h5py._conv] [DEBUG] Creating converter from 7 to 5
+2024-03-22 14:52:24,018 [h5py._conv] [DEBUG] Creating converter from 5 to 7
+2024-03-22 15:09:20,481 [parso.cache] [DEBUG] pickle loaded: /Users/jcoleman/opt/anaconda3/envs/pyj_napari/lib/python3.9/site-packages/jedi/third_party/typeshed/stdlib/2and3/builtins.pyi
+2024-03-22 15:09:20,504 [parso.cache] [DEBUG] pickle loaded: /Users/jcoleman/opt/anaconda3/envs/pyj_napari/lib/python3.9/site-packages/jedi/third_party/typeshed/stdlib/3/sys.pyi
+2024-03-22 16:36:05,680 [parso.python.diff] [DEBUG] diff parser start
+2024-03-22 16:36:05,683 [parso.python.diff] [DEBUG] line_lengths old: 1; new: 4
+2024-03-22 16:36:05,684 [parso.python.diff] [DEBUG] -> code[replace] old[1:1] new[1:4]
+2024-03-22 16:36:05,687 [parso.python.diff] [DEBUG] parse_part from 1 to 4 (to 3 in part parser)
+2024-03-22 16:36:05,687 [parso.python.diff] [DEBUG] diff parser end
+2024-03-22 19:47:48,930 [parso.python.diff] [DEBUG] diff parser start
+2024-03-22 19:47:48,932 [parso.python.diff] [DEBUG] line_lengths old: 4; new: 25
+2024-03-22 19:47:48,933 [parso.python.diff] [DEBUG] -> code[replace] old[1:1] new[1:8]
+2024-03-22 19:47:48,934 [parso.python.diff] [DEBUG] parse_part from 1 to 8 (to 16 in part parser)
+2024-03-22 19:47:48,934 [parso.python.diff] [DEBUG] -> code[equal] old[2:2] new[9:9]
+2024-03-22 19:47:48,935 [parso.python.diff] [DEBUG] parse_part from 9 to 17 (to 18 in part parser)
+2024-03-22 19:47:48,935 [parso.python.diff] [DEBUG] -> code[replace] old[3:4] new[10:25]
+2024-03-22 19:47:48,938 [parso.python.diff] [DEBUG] parse_part from 18 to 24 (to 24 in part parser)
+2024-03-22 19:47:48,938 [parso.python.diff] [DEBUG] parse_part from 25 to 25 (to 24 in part parser)
+2024-03-22 19:47:48,938 [parso.python.diff] [DEBUG] diff parser end
+2024-03-22 19:47:49,002 [parso.cache] [DEBUG] pickle loaded: /Users/jcoleman/opt/anaconda3/envs/pyj_napari/lib/python3.9/typing.py
+2024-03-22 19:47:49,010 [parso.cache] [DEBUG] pickle loaded: /Users/jcoleman/opt/anaconda3/envs/pyj_napari/lib/python3.9/site-packages/jedi/third_party/typeshed/stdlib/3/typing.pyi
+2024-03-22 19:47:49,671 [parso.python.diff] [DEBUG] diff parser start
+2024-03-22 19:47:49,672 [parso.python.diff] [DEBUG] line_lengths old: 25; new: 25
+2024-03-22 19:47:49,672 [parso.python.diff] [DEBUG] -> code[equal] old[1:24] new[1:24]
+2024-03-22 19:47:49,672 [parso.python.diff] [DEBUG] copy old[8:23] new[1:23]
+2024-03-22 19:47:49,673 [parso.python.diff] [DEBUG] parse_part from 24 to 24 (to 24 in part parser)
+2024-03-22 19:47:49,674 [parso.python.diff] [DEBUG] -> code[replace] old[25:25] new[25:25]
+2024-03-22 19:47:49,674 [parso.python.diff] [DEBUG] parse_part from 25 to 25 (to 24 in part parser)
+2024-03-22 19:47:49,674 [parso.python.diff] [DEBUG] diff parser end
+2024-03-22 19:47:49,959 [parso.python.diff] [DEBUG] diff parser start
+2024-03-22 19:47:49,960 [parso.python.diff] [DEBUG] line_lengths old: 25; new: 25
+2024-03-22 19:47:49,960 [parso.python.diff] [DEBUG] -> code[equal] old[1:24] new[1:24]
+2024-03-22 19:47:49,961 [parso.python.diff] [DEBUG] copy old[8:23] new[1:23]
+2024-03-22 19:47:49,962 [parso.python.diff] [DEBUG] parse_part from 24 to 24 (to 24 in part parser)
+2024-03-22 19:47:49,962 [parso.python.diff] [DEBUG] -> code[replace] old[25:25] new[25:25]
+2024-03-22 19:47:49,962 [parso.python.diff] [DEBUG] parse_part from 25 to 25 (to 24 in part parser)
+2024-03-22 19:47:49,963 [parso.python.diff] [DEBUG] diff parser end
+2024-03-22 19:47:50,224 [parso.python.diff] [DEBUG] diff parser start
+2024-03-22 19:47:50,224 [parso.python.diff] [DEBUG] line_lengths old: 25; new: 25
+2024-03-22 19:47:50,224 [parso.python.diff] [DEBUG] -> code[equal] old[1:24] new[1:24]
+2024-03-22 19:47:50,224 [parso.python.diff] [DEBUG] copy old[8:23] new[1:23]
+2024-03-22 19:47:50,224 [parso.python.diff] [DEBUG] parse_part from 24 to 24 (to 24 in part parser)
+2024-03-22 19:47:50,224 [parso.python.diff] [DEBUG] -> code[replace] old[25:25] new[25:25]
+2024-03-22 19:47:50,225 [parso.python.diff] [DEBUG] parse_part from 25 to 25 (to 24 in part parser)
+2024-03-22 19:47:50,225 [parso.python.diff] [DEBUG] diff parser end
+2024-03-22 19:47:50,493 [parso.python.diff] [DEBUG] diff parser start
+2024-03-22 19:47:50,494 [parso.python.diff] [DEBUG] line_lengths old: 25; new: 25
+2024-03-22 19:47:50,494 [parso.python.diff] [DEBUG] -> code[equal] old[1:24] new[1:24]
+2024-03-22 19:47:50,495 [parso.python.diff] [DEBUG] copy old[8:23] new[1:23]
+2024-03-22 19:47:50,495 [parso.python.diff] [DEBUG] parse_part from 24 to 24 (to 24 in part parser)
+2024-03-22 19:47:50,496 [parso.python.diff] [DEBUG] -> code[replace] old[25:25] new[25:25]
+2024-03-22 19:47:50,496 [parso.python.diff] [DEBUG] parse_part from 25 to 25 (to 24 in part parser)
+2024-03-22 19:47:50,496 [parso.python.diff] [DEBUG] diff parser end

@@ -1,0 +1,38 @@
+STORED OPTIONS, FILE = mThy6s_001_D4Z1
+Time of Recording (recording stopped)
+Tue Sep 26 15:12:21 2017
+Session Name
+mThy6s_001_D4Z1
+Recording Frequency
+1000
+Total Channels: 8
+Channel 1 Name: 
+Channel 2 Name: 
+Channel 3 Name: 
+Channel 4 Name: 
+Channel 5 Name: 
+Channel 6 Name: 
+Channel 7 Name: 
+Channel 8 Name: 
+Experimental Notes
+8days Lt4/2p
+
+0,45,90,135,180,225,270,315
+
+duration = 2.5 (true = 5s)
+inter-session = 3.5 (true = 7s)
+start delay = 30 (true = 60sec)
+16200 frames (9m7s on bscope streaming)
+drift rate = 3Hz? (true = 1.5?); try 6Hz, true = 3Hz?
+
+mon width  = 52 cm
+distance = 14 cm
+hoiz = 1920; vert = 1080 pix
+
+5s, 7s gray
+0,45,90,135,180,225,270,315
+5 sessions
+60s delay
+= (16200 frames = 9m7s)
+
+

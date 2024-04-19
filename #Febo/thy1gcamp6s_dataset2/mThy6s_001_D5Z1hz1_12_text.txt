@@ -1,0 +1,36 @@
+STORED OPTIONS, FILE = mThy6s_001_D5Z1hz1
+Time of Recording (recording stopped)
+Tue Oct 17 15:33:54 2017
+Session Name
+mThy6s_001_D5Z1hz1
+Recording Frequency
+1000
+Total Channels: 8
+Channel 1 Name: 
+Channel 2 Name: 
+Channel 3 Name: 
+Channel 4 Name: 
+Channel 5 Name: 
+Channel 6 Name: 
+Channel 7 Name: 
+Channel 8 Name: 
+Experimental Notes
+ALL DRIFT
+
+0,45,90,135,180,225,270,315
+
+value entered/true value*
+
+duration = 2.5/5s
+inter-session = 3.5/7s
+start delay = 30/60s
+drift rate = 1.5/3Hz
+delay = 30/60s
+
+16200 frames (9m7s on bscope streaming)
+
+mon width  = 52cm
+distance = 14cm
+horiz = 1920; vert = 1080 pix
+
+* due to bug in VisStim.py v01

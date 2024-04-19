@@ -2,10 +2,17 @@ Files for Febo lab - calcium test analysis:
 
 3 different data sets from Thy1-GCaMP6s Tg mice (GP4.12; https://www.jax.org/strain/025776), head-fixed, awake under visual stimulation. Some movement may be detected in the traces (e.g., coordinated drift across channels/ROIs). All data sets are sample from the same cells/ROIs across sessions.
 
-Data sets 1 and 2
+
+General scheme of the files:
+The first 60sec (i.e. the first 60*30=1800frames) is just "spontaneous" activity in awake mouse visual cortex while viewing a gray screen (50% contrast).
+
+After that, the mice view a series of sinusoidal gratings of 5 or 8 different orientations and interleaved with gray screen. Each signal trace or region of interest (ROI) represents a single neuron.
+
+
+Data sets 1 and 2:
 Day 1 and Day 2 of imaging the same set of cells (ROIs) in ~layers 2/3 under identical conditions (10Hz drifting sinusoidal gratings, 8 orientations, 5 sessions (check# ?) each for averaging)
 
-Data set 3
+Data set 3:
 One day of data, same cells in Data sets 1 and 2; 2 different visual stimulation regimes 		   (0.5Hz phase-reversing sinusoidal gratings, 5 orientations, 5 sessions (check# ?)  each for averaging)
 
 - PNG/EPS files contain cell maps with ROI labels (TIF file shows average intensity from raw Tseries)

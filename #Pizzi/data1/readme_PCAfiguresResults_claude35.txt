@@ -1,4 +1,6 @@
-<Can you interpret these plots? And provide some synthesis of the results? For context, the data analyzed are from measurements in mouse brain vasculature imaged using intravital 2-photon imaging and are derived from ROIs in 3D image stacks acquired using galvo-galvo scanner and 6X zoom with a Nikon 16x lens. There are two groups represented (control-red and experimental-black) but the data were analyzed blind to group (only represented in the PCA plot by text color of ROI#). Here are stattisal results when comparing group PC scores : Results for PC1:
+<Can you interpret these plots? And provide some synthesis of the results? For context, the data analyzed are from measurements in mouse brain vasculature imaged using intravital 2-photon imaging and are derived from ROIs in 3D image stacks acquired using galvo-galvo scanner and 6X zoom with a Nikon 16x lens. There are two groups represented (control-red and experimental-black) but the data were analyzed blind to group (only represented in the PCA plot by text color of ROI#). Here are stattisal results when comparing group PC scores :
+
+Results for PC1:
   Test: Mann-Whitney U test
   Statistic: 7534.0, p-value: 0.4224659152628756
 Results for PC2:

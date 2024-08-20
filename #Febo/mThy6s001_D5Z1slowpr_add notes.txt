@@ -1,0 +1,52 @@
+NOTE The raw data TIF files are available upon request, but not on GitHub atm.
+
+
+### DRIFTING SINUSOIDAL GRATINGS
+STORED OPTIONS, FILE = mThy6s_001_D4Z1
+Time of Recording (recording stopped)
+Tue Sep 26 15:12:21 2017
+Session Name
+mThy6s_001_D4Z1
+Recording Frequency
+1000
+Experimental Notes
+8days Lt4/2p
+0,45,90,135,180,225,270,315
+
+STORED OPTIONS, FILE = mThy6s_001_D5Z1hz1
+Time of Recording (recording stopped)
+Tue Oct 17 15:33:54 2017
+Session Name
+mThy6s_001_D5Z1hz1
+Recording Frequency
+1000
+Experimental Notes
+ALL DRIFT
+0,45,90,135,180,225,270,315
+
+
+### PHASE-REVERSING SINUSOIDAL GRATINGS
+## @Z1
+STORED OPTIONS, FILE = mThy6s_001_D5Z1slowpr
+Time of Recording (recording stopped)
+Tue Oct 17 15:58:01 2017
+Session Name
+mThy6s_001_D5Z1slowpr
+Recording Frequency
+1000
+Experimental Notes
+SLOW PHASE REVERSAL (PR)
+0,45,90,135,180
+
+## @Z2 - adjust z -180 (166 TO 148) - CLEANER DATA
+STORED OPTIONS, FILE = mThy6s_001_D5Z1slowpr
+Time of Recording (recording stopped)
+Tue Oct 17 16:46:24 2017
+Session Name
+mThy6s_001_D5Z1slowpr
+Recording Frequency
+1000
+Experimental Notes
+adjust z -180 (166 TO 148) - CLEANER DATA
+SLOW PHASE REVERSAL (PR)
+0,45,90,135,180

@@ -61,8 +61,10 @@ g = hgtransform('Matrix', makehgtform('translate', [0 0 ztslicenumber(1)]));
 imagesc(g, img);
 %set(g, 'Parent', gca); % Set parent axes to current axes
 img_1 = img(1,:)
-set(gca, 'CLim', [min(img_1) max(img_1)]);
-colormap(gca, gray); % Set colormap to gray - but only TIF - how?
+%set(gca, 'CLim', [min(img_1) max(img_1)]);
+%set(gca, 'CLim', [min(fwhm) max(fwhm)]);
+set(gca, 'CLim', [10 max(fwhm)]);
+%colormap(gca, gray); % Set colormap to gray - but only TIF - how?
 
 % Overall figure title
 title(strrep(filename, '_', ' '));

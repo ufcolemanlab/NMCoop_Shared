@@ -1,0 +1,35 @@
+Data source:
+stdevFWHM
+Removed rows with NaN values:
+2
+
+Descriptive Statistics:
+                   count      mean       std       min       25%       50%       75%       max
+group vessel_type                                                                             
+Sham  arteriole     10.0  0.111466  0.071600  0.043060  0.068219  0.085998  0.112293  0.242243
+      capillary     56.0  0.152427  0.117362  0.030741  0.082570  0.115360  0.176885  0.620988
+      venule         4.0  0.097128  0.012629  0.084146  0.087372  0.098162  0.107917  0.108041
+rmTBI arteriole     10.0  0.152558  0.090400  0.030276  0.096466  0.144024  0.183367  0.340340
+      capillary    102.0  0.160101  0.144541  0.015684  0.076235  0.116221  0.187203  0.996401
+      venule         8.0  0.177715  0.155952  0.063900  0.090019  0.129103  0.179119  0.539713
+
+Normality Test (Shapiro-Wilk test):
+Shapiro-Wilk test for rmTBI, capillary: statistic=0.7096, p-value=0.0000
+Shapiro-Wilk test for rmTBI, arteriole: statistic=0.9580, p-value=0.7628
+Shapiro-Wilk test for rmTBI, venule: statistic=0.7253, p-value=0.0043
+Shapiro-Wilk test for Sham, capillary: statistic=0.7804, p-value=0.0000
+Shapiro-Wilk test for Sham, arteriole: statistic=0.7608, p-value=0.0048
+Shapiro-Wilk test for Sham, venule: statistic=0.8072, p-value=0.1159
+
+One-way ANOVA for groups:
+F-value: 0.3398, p-value: 0.7124
+
+One-way ANOVA for vessel types:
+F-value: 0.3398, p-value: 0.7124
+
+Kruskal-Wallis H-test results:
+Group effect: statistic=0.3820, p-value=0.5365
+Vessel type effect: statistic=0.2808, p-value=0.8690
+
+Dunn's test results:
+H-statistic: 2.7284, p-value: 0.1159

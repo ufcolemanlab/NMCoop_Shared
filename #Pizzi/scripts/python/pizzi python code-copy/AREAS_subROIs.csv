@@ -1,0 +1,9 @@
+0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
+ ,Index,Name,Type,Group,X,Y,Width,Height,Points,Color,Fill,LWidth,Pos,C,Z,T
+1,0,audp1,Rectangle,none,820,5344,1200,1200,4,none,none,0,0,0,0,0
+2,1,ca1b,Rectangle,none,6528,1968,600,600,4,none,none,0,0,0,0,0
+3,2,ca3a,Rectangle,none,4943,2725,600,600,4,none,none,0,0,0,0,0
+4,3,dg1,Rectangle,none,7857,3820,600,600,4,none,none,0,0,0,0,0
+5,4,mop1,Rectangle,none,6560,612,1200,1200,4,none,none,0,0,0,0,0
+6,5,pir1,Polygon,none,2163,9157,1640,1640,4,none,none,0,0,0,0,0
+7,6,ssp1,Polygon,none,4672,601,1470,1470,4,none,none,0,0,0,0,0

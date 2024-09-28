@@ -1,0 +1,67 @@
+Animal	perivessel AU 1	perivessel AU 2	lumen AU	Fe/Fv	vessel type	location along AV axis
+6	3140	3137	20829	0.1507	arteriole	Prior to bifurctation
+6	1853	1341	10575	0.1511	arteriole	Prior to bifurctation
+6	2810	3109	13490	0.2194	capillary	post bifurcation
+6	2454	1905	9040	0.241	capillary	mid-capillary
+6	4266	2921	9659	0.3721	capillary	post bifurcation
+7	850	672	13100	0.0513	arteriole	post bifurcation
+7	537	642	9196	0.0641	capillary	mid-capillary
+7	1537	975	7025	0.1788	capillary	mid-capillary
+9	151	381	11638	0.0229	capillary	post bifurcation
+9	389	278	8900	0.0375	capillary	post bifurcation
+9	234	130	10709	0.0121	arteriole	mid vessel
+9	391	212	6871	0.0439	capillary	mid-capillary
+9	293	393	5085	0.0675	capillary	post bifurcation
+9	245	208	3182	0.0711	capillary	post bifurcation
+10	891	1682	18751	0.0686	capillary	post bifurcation
+10	204	249	16397	0.0138	capillary	mid-capillary
+10	169	479	14812	0.0323	venule	mid vessel
+10	152	172	11085	0.0155	venule	mid vessel
+10	172	210	17468	0.0109	capillary	mid-capillary
+10	352	395	5420	0.0689	capillary	mid-capillary
+11	298	194	4426	0.0438	arteriole	mid vessel
+11	550	384	6009	0.0639	arteriole	mid vessel
+11	897	830	4755	0.1689	arteriole	mid vessel
+11	1182	1188	7362	0.161	capillary	mid-capillary
+11	859	918	4928	0.1863	arteriole	Prior to bifurctation
+11	115	387	4299	0.0584	capillary	mid-capillary
+11	466	586	6773	0.0777	capillary	mid-capillary
+12	723	632	7936	0.0796	arteriole	mid vessel
+12	171	210	25157	0.0076	capillary	post bifurcation
+12	257	212	16260	0.0144	capillary	post bifurcation
+12	299	278	20252	0.0142	capillary	mid-capillary
+12	185	106	11770	0.009	arteriole	mid vessel
+12	143	218	19856	0.0091	capillary	mid-capillary
+12	381	423	8720	0.0485	arteriole	mid vessel
+12	745	542	12548	0.0432	venule	 mid vessel
+12	183	178	6047	0.0298	capillary	mid-capillary
+12	582	517	17616	0.0312	capillary	post bifurcation
+12	499	489	6627	0.0738	arteriole	mid vessel
+13	297	480	6845	0.0568	capillary	mid-capillary
+13	623	671	8815	0.0734	capillary	mid-capillary
+13	603	336	13783	0.0341	capillary	mid-capillary
+13	238	446	6859	0.0499	capillary	mid-capillary
+13	563	291	10315	0.0414	capillary	post bifurcation
+13	415	416	12374	0.0336	capillary	post bifurcation
+13	375	508	12581	0.0404	arteriole	pre bifurcation
+13	711	600	10721	0.056	arteriole	mid vessel
+13	248	650	13765	0.0326	capillary	mid-capillary
+13	390	726	13581	0.0411	capillary	mid-capillary
+13	187	317	9834	0.0256	capillary	post bifurcation
+15	272	331	3398	0.0974	arteriole	mid vessel
+15	172	449	4448	0.0698	capillary	mid-capillary
+15	289	339	4360	0.072	capillary	mid-capillary
+15	254	281	3270	0.0818	capillary	mid-capillary
+15	507	556	3209	0.1656	capillary	mid-capillary
+15	369	460	3668	0.113	capillary	mid-capillary
+15	431	325	5319	0.0611	arteriole	mid vessel
+15	633	541	5071	0.1158	capillary	post bifurcation
+15	410	552	5441	0.1015	arteriole	mid vessel
+16	634	308	10706	0.044	capillary	mid-capillary
+16	102	280	10667	0.0262	venule	mid vessel
+16	140	515	16909	0.0194	capillary	mid-capillary
+16	495	677	10023	0.0675	arteriole	mid vessel
+16	621	660	11534	0.0572	arteriole	mid vessel
+16	546	649	9646	0.0624	capillary	mid-capillary
+16	354	386	15528	0.0249	arteriole	mid vessel
+16	829	699	11031	0.0693	capillary	mid-capillary

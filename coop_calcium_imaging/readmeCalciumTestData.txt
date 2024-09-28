@@ -1,12 +1,9 @@
 Files for calcium test analysis
 
 MATLAB Notes:
-To process raw calcium signals from image ROIs, start with Matlab code (R2023b, R2021b)
-'calcium_2p_mousecortex.m'
-Plus dependencies:
-'node.m', 'circularGraph.m'
+To process raw calcium signals from image ROIs, start with Matlab code (R2023b, R2021b) 'calcium_2p_mousecortex.m' (Plus dependencies: 'node.m', 'circularGraph.m').
 
-PYTHON Notes: Code available upon request (jcoleman@ufl.edu)
+PYTHON Notes: Coming soon. Code available upon request (jcoleman@ufl.edu)
 
 Under '/shared datasets/'
 Two different data sets from Thy1-GCaMP6s Tg mice (GP4.12; https://www.jax.org/strain/025776), head-fixed, awake under visual stimulation. Some movement may be detected in the traces (e.g., coordinated drift across channels/ROIs). All data sets are sample from the same cells/ROIs across sessions.

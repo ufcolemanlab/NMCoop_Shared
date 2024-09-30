@@ -1,6 +1,21 @@
+Full data sets for testing code/generating preliminary data are under (~everything but raw image stacks):
+
+/thy1gcamp6s_dataset1/
+/thy1gcamp6s_dataset2/
+/thy1gcamp6s_dataset3/
+
+Data generated from G4.12 Tg line described here:
+Dana H, Chen T-W, Hu A, Shields BC, Guo C, et al. (2014) Thy1-GCaMP6 Transgenic Mice for Neuronal Population Imaging In Vivo.
+PLoS ONE 9(9): e108697. doi:10.1371/journal.pone.0108697
+
+See 'readmeCalciumData.txt' for full details
+
 09-30-2024
 Use 'calcium_2p_mousecortex.m' (found under ~/coop_calcium_imaging/shared datasets/scripts for coop pilots/matlab/)
+to process the CSV data files found under '~/coop_calcium_imaging/shared datasets/calcium_2p_example_input/':
+  'mThy6s2_alldrift_D4_001Z1_ROIdata.csv'
+  'DATA_mThy6s2_alldrift_D5_001Z1hz1.csv'
 
-to process the CSV data files found under coop_calcium_imaging/shared datasets/calcium_2p_example_input/
+- Code written in Matlab R2023b, tested in R2021b
 
-Code written in Matlab R2023b, tested in R2021b
+

@@ -16,7 +16,7 @@ At frame# 1801, the subjects begin viewing a series of sinusoidal gratings of 5 
 
 
 Data sets 1 and 2:
-Day 1 and Day 2 of imaging the same set of cells (ROIs) in ~layers 2/3 under identical conditions (10Hz drifting sinusoidal gratings, 8 orientations, 5 sessions each for averaging)
+Day 1 and Day 2 of imaging the same set of cells (ROIs) in ~layers 2/3 under identical conditions (10Hz drifting sinusoidal gratings, 8 orientation-directions, 5 sessions each for averaging)
 
 - PNG/EPS files contain cell maps with ROI labels (TIF file shows average intensity from raw Tseries)
 - CSV files contain raw data from FIJI ("raw intensity data", "centroid XY coordinates", etc)

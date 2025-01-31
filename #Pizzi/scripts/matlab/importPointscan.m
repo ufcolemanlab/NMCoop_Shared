@@ -107,7 +107,7 @@ if size(pmtData,2) < 3 %no LOOPS present (ie LOOPS refers to # of frames/acquisi
 
 end
 
-SETUP FOR POINTSCAN - generalize etc
+% 1-20-2025 : ?SETUP FOR POINTSCAN - generalize etc
 if size(pmtData,2) == 3 % ie if LOOPS/mulit-frames present    
     %ChanNum = size(pmtData,2)
     ChanNum = 2;

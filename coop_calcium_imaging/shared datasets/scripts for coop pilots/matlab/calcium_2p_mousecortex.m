@@ -39,9 +39,10 @@
 clear; 
 
 %Enter directory path and filename to process
-pathname = '/Users/jcoleman/Documents/GitHub/NMCoop_Shared/#Febo/thy1gcamp6s_dataset1/';
-filename = 'mThy6s2_alldrift_D4_001Z1_ROIdata.csv';
-% filename = 'DATA_mThy6s2_alldrift_D5_001Z1hz1.csv'
+% pathname = '/Users/jcoleman/Documents/GitHub/NMCoop_Shared/coop_calcium_imaging/shared datasets/thy1gcamp6s_dataset1/';
+pathname = '/Users/jcoleman/Documents/GitHub/NMCoop_Shared/coop_calcium_imaging/shared datasets/thy1gcamp6s_dataset2/';
+% filename = 'mThy6s2_alldrift_D4_001Z1_ROIdata.csv';
+filename = 'DATA_mThy6s2_alldrift_D5_001Z1hz1.csv';
 csv_data = [pathname filename]
 
 %Import signal using 'csv_data' 
@@ -418,16 +419,22 @@ numCells(1,1) = sum(BasePks == 0);
 numCells(2,1) = sum(BasePks > 0 & BasePks <6);
 numCells(3,1) = sum(BasePks >=6 );
 
+BasePks = day1.BasePks;
+Ca2Coord = day1.Ca2Coord;
+Ca2SigsBase = day1.Ca2SigsBase
+
 n=1:32;
 figure
 C23d = bubblechart3(Ca2Coord(:,1),Ca2Coord(:,2),BasePks(1:32,1),BasePks(1:32,1),n);
-title('Size of Spontaneous Baseline Events')
+title([''],['Size of Spontaneous Baseline Events'])
 xlabel('X Position')
 ylabel('Y Position')
 zlabel('Event #')
 xlim([0 500])
 ylim([0 500])
-zlim([0 max(BasePks(1:32,1))])
+% zlim([0 max(BasePks(1:32,1))])
+zlim([0 8]) % Opitmized for Sample dataset for *D4* and *D5* comparison
+set(gca, 'FontSize', 16);
 print(gcf,'BubbleChartEvents.png','-dpng','-r1200');
 
 figure
@@ -443,3 +450,413 @@ plot(BaseResponseProfile);
 print(gcf,'BaseResponsiveNeurons.png','-dpng','-r1200');
 
 save('twoPcalcium_mouse.mat')
+
+% End Original Script - Below this section is experimental code
+
+%% Handling "D4" and "D5" data sets (acquired on day0 and day13)
+% Load both datasets
+path1 = '/Users/jcoleman/UFL Dropbox/Jason Coleman/--GRANTS--/2025/Febo - R01 tau-DMN-2p/calcium soma Thy1-GCAMP6f day1Vday2 Figures from Jason/D4(day1)/section2/twoPcalcium_mouse_day1.mat'
+path2 = '/Users/jcoleman/UFL Dropbox/Jason Coleman/--GRANTS--/2025/Febo - R01 tau-DMN-2p/calcium soma Thy1-GCAMP6f day1Vday2 Figures from Jason/D5(day2)/section2/twoPcalcium_mouse_day2.mat'
+% Load both datasets
+day1 = load(path1);
+day2 = load(path2);
+
+% Extract calcium signals and fps
+Ca2Sigs_day1 = day1.Ca2SigsBase;
+Ca2Sigs_day2 = day2.Ca2SigsBase;
+fps = day1.params2p.fps;
+
+nROIs = size(Ca2Sigs_day1, 2);
+BasePks_day1 = zeros(nROIs, 1);
+BasePks_day2 = zeros(nROIs, 1);
+
+% Count spontaneous peaks using thresholding
+for i = 1:nROIs
+%     pd = fitdist(Ca2Sigs_day1(:, i), 'Normal');
+%     ci = paramci(pd, 'Alpha', 0.05);
+    baseline = Ca2Sigs_day1(:, i);
+    medF = median(baseline);
+    madF = mad(baseline, 1);  % robust estimate of noise
+    threshold = medF + 3 * madF;
+%     % OR Fit a normal distribution to the calcium signal vector
+%     pd = fitdist(Ca2Sigs_day1(:, i), 'Normal');
+%     % Get 95% confidence interval on the mean and std
+%     ci = paramci(pd);  % ci(1,:) = mu, ci(2,:) = sigma
+%     % Define the threshold (mean + 3 * std upper bound)
+%     threshold = ci(2,1) + ci(2,2) * 3; 
+%     pks = findpeaks(Ca2Sigs_day1(:, i), 1/fps, ...
+%         'MinPeakHeight', ci(2,1) + ci(2,2) * 3);
+%     pks = findpeaks(baseline, 1/fps, 'MinPeakHeight', threshold);
+
+    [pks,locs] = findpeaks(baseline, 'MinPeakHeight', threshold);
+
+    BasePks_day1(i) = numel(pks);
+    BasePksIndices_day1{i} = pks;
+    BaseLocs_day1{i} = locs;
+
+end
+plot(baseline); hold on;
+plot(BaseLocs_day1{i}, BasePksIndices_day1{i}, 'ro', 'MarkerFaceColor', 'r', 'MarkerSize', 6)
+
+for i = 1:nROIs
+%     pd = fitdist(Ca2Sigs_day2(:, i), 'Normal');
+%     ci = paramci(pd, 'Alpha', 0.05);
+    baseline = Ca2Sigs_day2(:, i);
+    medF = median(baseline);
+    madF = mad(baseline, 1);  % robust estimate of noise
+    threshold = medF + 3 * madF;
+%     pks = findpeaks(Ca2Sigs_day2(:, i), 1/fps, ...
+%         'MinPeakHeight', ci(2,1) + ci(2,2) * 3);
+%     pks = findpeaks(baseline, 1/fps, 'MinPeakHeight', threshold);
+
+    [pks,locs] = findpeaks(baseline, 1/fps, 'MinPeakHeight', threshold);
+
+    BasePks_day2(i) = numel(pks);
+    BasePksIndices_day2{i} = pks;
+    BaseLocs_day2{i} = locs;
+end
+
+% Classify ROIs into bins
+categorize = @(x) [sum(x == 0); sum(x > 0 & x <= 6); sum(x > 6)];
+num_day1 = categorize(BasePks_day1);
+num_day2 = categorize(BasePks_day2);
+barData = [num_day1, num_day2];
+
+% Bar Plot with updated colors
+figure('Position', [400 300 320 450]);
+bh = bar(barData, 'FaceColor', 'flat');
+
+% Custom colors
+bh(1).CData = repmat([0.3 0.8 1], 3, 1);    % Day 1 = turquoise blue
+bh(2).CData = repmat([1 0.2 0.8], 3, 1);    % Day 2 = magenta
+
+xticklabels({'Silent (0)', 'Normal (0–6)', 'Hyperactive (>6)'});
+xtickangle(45);
+ylabel('# of Neurons');
+title('Spontaneous Transients');
+
+% Update legend to match new colors
+legend({'Day 1', 'Day 2'}, 'Location', 'northoutside', 'Orientation', 'horizontal');
+
+ylim([0 max(barData(:)) + 2]);
+set(gca, 'Box', 'off', 'FontSize', 10);
+set(gcf, 'Color', 'w');
+
+% Optional: save output
+% print(gcf, 'SpontaneousTransients_TurquoiseMagenta.png', '-dpng', '-r300');
+
+%%
+% --- Load data ---
+day1 = load(path1);
+day2 = load(path2);
+
+Ca2_day1 = day1.Ca2SigsBase;
+Ca2_day2 = day2.Ca2SigsBase;
+fps = day1.params2p.fps;
+nROIs = size(Ca2_day1, 2);
+
+BasePks_day1 = zeros(nROIs, 1);
+BasePks_day2 = zeros(nROIs, 1);
+
+% --- Peak count using median + MAD threshold ---
+for i = 1:nROIs
+    baseline = Ca2_day1(:, i);
+    medF = median(baseline);
+    madF = mad(baseline, 1);
+    threshold = medF + 3 * madF;
+    pks = findpeaks(baseline, 1/fps, 'MinPeakHeight', threshold);
+    BasePks_day1(i) = numel(pks);
+end
+
+for i = 1:nROIs
+    baseline = Ca2_day2(:, i);
+    medF = median(baseline);
+    madF = mad(baseline, 1);
+    threshold = medF + 3 * madF;
+    pks = findpeaks(baseline, 1/fps, 'MinPeakHeight', threshold);
+    BasePks_day2(i) = numel(pks);
+end
+
+% --- Classify ROIs ---
+classify = @(x) (x == 0) + 2*(x > 0 & x <= 6) + 3*(x > 6);
+% classify = @(x) [sum(x == 0); sum(x > 0 & x <= 6); sum(x > 6)];
+classes_day1 = classify(BasePks_day1);  % returns 1, 2, or 3
+classes_day2 = classify(BasePks_day2);
+
+% --- Create binary classification matrix (3 x N) ---
+% B1 = [classes_day1 == 1; classes_day1 == 2; classes_day1 == 3];  % 3xN
+% B2 = [classes_day2 == 1; classes_day2 == 2; classes_day2 == 3];
+B1 = [ ...
+    (classes_day1 == 1)';
+    (classes_day1 == 2)';
+    (classes_day1 == 3)'];
+
+B2 = [ ...
+    (classes_day2 == 1)';
+    (classes_day2 == 2)';
+    (classes_day2 == 3)'];
+
+
+% --- Compute mean ± SEM ---
+mean_vals = [mean(B1, 2), mean(B2, 2)];
+sem_vals = [std(B1, 0, 2)/sqrt(nROIs), std(B2, 0, 2)/sqrt(nROIs)];
+
+disp('BasePks_day1 summary:')
+disp(tabulate(BasePks_day1))
+
+disp('Class breakdown - day 1:')
+disp([ ...
+    sum(classes_day1 == 1), ...
+    sum(classes_day1 == 2), ...
+    sum(classes_day1 == 3)])
+
+disp('Class breakdown - day 2:')
+disp([ ...
+    sum(classes_day2 == 1), ...
+    sum(classes_day2 == 2), ...
+    sum(classes_day2 == 3)])
+
+disp('Mean fraction per category:')
+disp(mean_vals)
+
+
+% --- Plot longitudinal line plot ---
+figure; hold on
+xvals = [1 2];
+labels = {'Silent (0)', 'Normal (0–6)', 'Hyperactive (>6)'};
+colors = [0.3 0.8 1; 1 0.2 0.8; 1 0.6 0.3];  % consistent color scheme
+
+for c = 1:3
+    y = mean_vals(c, :);
+    yerr = sem_vals(c, :);
+    
+    % Plot line
+    plot(xvals, y, '-', 'Color', colors(c, :), 'LineWidth', 2, ...
+        'DisplayName', labels{c});
+    
+    % SEM shading
+    fill([xvals, fliplr(xvals)], ...
+         [y + yerr, fliplr(y - yerr)], ...
+         colors(c, :), 'FaceAlpha', 0.3, 'EdgeColor', 'none');
+end
+
+xticks(xvals)
+xticklabels({'Day 1', 'Day 2'})
+ylabel('Fraction of Neurons')
+title('Longitudinal Spontaneous Transient Categories')
+legend('Location', 'northoutside', 'Orientation', 'horizontal')
+ylim([0, 1])
+set(gca, 'FontSize', 10)
+set(gcf, 'Color', 'w')
+
+% --- Optional: save figure ---
+print(gcf, 'LongitudinalSpontaneousTransients_MADfix.png', '-dpng', '-r300')
+
+%%
+disp("Fraction of neurons per class (Day 1, Day 2):")
+disp("Silent:"), disp(mean_vals(1, :))
+disp("Normal:"), disp(mean_vals(2, :))
+disp("Hyperactive:"), disp(mean_vals(3, :))
+
+%%
+% Replace 0s with small values for visualization
+BasePks_day1_plot = BasePks_day1;
+BasePks_day2_plot = BasePks_day2;
+BasePks_day1_plot(BasePks_day1_plot == 0) = 0.001;
+BasePks_day2_plot(BasePks_day2_plot == 0) = 0.001;
+
+% Scatter plot: Day 1 vs Day 2
+figure; hold on
+scatter(BasePks_day1_plot, BasePks_day2_plot, ...
+    60, 'o', 'MarkerEdgeColor', 'k', ...
+    'MarkerFaceColor', [0.4 0.7 1], ...
+    'LineWidth', 1.2);
+
+plot([0.001, max([BasePks_day1; BasePks_day2])], ...
+     [0.001, max([BasePks_day1; BasePks_day2])], ...
+     'k--', 'LineWidth', 1);  % unity line
+
+xlabel('Spontaneous Peaks (Day 1)')
+ylabel('Spontaneous Peaks (Day 2)')
+title('Neuron-by-Neuron Spontaneous Transients')
+set(gca, 'FontSize', 10)
+set(gcf, 'Color', 'w')
+set(gca, 'XScale', 'log', 'YScale', 'log')  % optional: log scale
+xlim([0.001, max(BasePks_day1_plot) + 1])
+ylim([0.001, max(BasePks_day2_plot) + 1])
+grid on
+axis square
+
+% Optional save
+print(gcf, 'Scatter_SpontaneousTransients_Day1vsDay2.png', '-dpng', '-r300')
+%%
+% Replace zeros for plotting
+BasePks_day1_plot = BasePks_day1;
+BasePks_day2_plot = BasePks_day2;
+BasePks_day1_plot(BasePks_day1_plot == 0) = 0.001;
+BasePks_day2_plot(BasePks_day2_plot == 0) = 0.001;
+
+% --- Define colors for categories ---
+colors = [0.3 0.8 1; 1 0.2 0.8; 1 0.6 0.3];  % Silent, Normal, Hyperactive
+class_labels = {'Silent', 'Normal', 'Hyperactive'};
+
+% --- Create main scatter plot with marginal histograms ---
+figure('Position', [300, 300, 600, 600]);
+t = tiledlayout(4, 4, 'Padding', 'compact', 'TileSpacing', 'compact');
+
+% Top histogram
+nexttile(2, [1, 2]);
+histogram(BasePks_day1, 'BinMethod', 'integers', 'FaceColor', [0.5 0.5 0.5]);
+xlim([0, max(BasePks_day1)+1])
+title('Day 1')
+set(gca, 'XTick', [], 'YTick', [])
+
+% Right histogram
+nexttile(8, [2, 1]);
+histogram(BasePks_day2, 'BinMethod', 'integers', 'Orientation', 'horizontal', ...
+    'FaceColor', [0.5 0.5 0.5]);
+ylim([0, max(BasePks_day2)+1])
+set(gca, 'XTick', [], 'YTick', [])
+
+% Main scatter plot
+nexttile(6, [2, 2]); hold on
+
+for c = 1:3
+    idx = (classes_day1 == c);  % or classes_day2 depending on what you want
+    scatter(BasePks_day1_plot(idx), BasePks_day2_plot(idx), ...
+        60, 'filled', 'MarkerFaceColor', colors(c,:), ...
+        'MarkerEdgeColor', 'k', 'DisplayName', class_labels{c});
+end
+
+% ROI index labels (optional)
+show_labels = false;
+if show_labels
+    for i = 1:nROIs
+        text(BasePks_day1_plot(i)+0.1, BasePks_day2_plot(i), ...
+             num2str(i), 'FontSize', 7, 'Color', [0.2 0.2 0.2]);
+    end
+end
+
+plot([0.001, max([BasePks_day1_plot; BasePks_day2_plot])], ...
+     [0.001, max([BasePks_day1_plot; BasePks_day2_plot])], ...
+     'k--', 'LineWidth', 1);  % unity line
+
+xlabel('Spontaneous Peaks (Day 1)')
+ylabel('Spontaneous Peaks (Day 2)')
+title('Neuron-by-Neuron Spontaneous Transients')
+set(gca, 'XScale', 'log', 'YScale', 'log')
+xlim([0.001, max(BasePks_day1_plot) + 1])
+ylim([0.001, max(BasePks_day2_plot) + 1])
+axis square
+grid on
+legend('Location', 'southoutside', 'Orientation', 'horizontal')
+set(gca, 'FontSize', 10)
+
+% Save output
+print(gcf, 'Scatter_Transients_wHistograms_andCategories.png', '-dpng', '-r300')
+
+%%
+% Figures for grant 2025 RO1
+
+% Zdata = day1.Zdata;
+% Zdata_thr_Pos = day1.Zdata_thr_Pos;
+% Zdata_thr_Neg = day1.Zdata_thr_Neg;
+
+Zdata = day2.Zdata;
+Zdata_thr_Pos = day2.Zdata_thr_Pos;
+Zdata_thr_Neg = day2.Zdata_thr_Neg;
+%%
+figure 
+h1=heatmap(Zdata,Colormap=autumn); title('Pearson Correlations');xlim([1 32]);ylim([1 32]);
+% fontsize(8,"points");
+% Workaround 'fontsize' error in R2021b:
+set(gca,'FontSize',8);
+print(gcf,'Heatmaps_Correlations.png','-dpng','-r1200');
+figure
+h2=heatmap(Zdata_thr_Pos,Colormap=gray); title('Positive Correlations');xlim([1 32]);ylim([1 32]);
+% fontsize(8,"points");
+set(gca,'FontSize',8);
+print(gcf,'Heatmaps_PosCorr.png','-dpng','-r1200');
+figure
+h3=heatmap(Zdata_thr_Neg,Colormap=gray); title('Negative Correlations');xlim([1 32]);ylim([1 32]);
+% fontsize(8,"points");
+set(gca,'FontSize',8);
+print(gcf,'Heatmaps_NegCorr.png','-dpng','-r1200');
+
+%%
+clim = [-0.58 1.25]; % set this to whatever min/max you want
+
+figure
+imagesc(Zdata, clim);
+colormap(autumn);
+colorbar;
+title('Pearson Correlations');
+set(gca,'FontSize',8);
+
+figure
+imagesc(Zdata_thr_Pos, clim);
+colormap(gray);
+colorbar;
+title('Positive Correlations');
+set(gca,'FontSize',8);
+
+figure
+imagesc(Zdata_thr_Neg, clim);
+colormap(gray);
+colorbar;
+title('Negative Correlations');
+set(gca,'FontSize',8);
+%%
+% Assume: data_day1 and data_day13 are [nROIs x nFrames] matrices
+% Use either raw deltaF/F or Z-scored traces (Z-score is good for normalization).
+
+% Zdata = day1.Zdata;
+% Zdata_thr_Pos = day1.Zdata_thr_Pos;
+% Zdata_thr_Neg = day1.Zdata_thr_Neg;
+
+% % Z-score each trace (optional but often useful)
+z_day1 = zscore(data_day1, 0, 2);    % Z-score along time (each ROI)
+z_day13 = zscore(data_day13, 0, 2);
+
+% Compute cross-correlation matrix between Day 1 and Day 13
+corr_mat = corr(z_day1', z_day13');  % [nROIs x nROIs]
+
+figure
+imagesc(corr_mat, [-.6 1.2]);           % Force color scale for comparison
+colormap(jet); colorbar
+xlabel('ROIs Day 13'); ylabel('ROIs Day 1');
+title([''], ['ROI-wise Correlation: Day 1 vs Day 13']);
+axis square
+set(gca, 'FontSize', 16);
+
+%%
+% Z-score traces if you wish
+% z_day1 = zscore(data_day1, 0, 2);
+% z_day13 = zscore(data_day13, 0, 2);
+
+nROIs = size(z_day1, 1);
+corrs = zeros(nROIs, 1);
+
+for i = 1:nROIs
+    corrs(i) = corr(z_day1(i,:)', z_day13(i,:)');
+end
+
+figure
+bar(corrs);
+ylim([-1 1]);
+xlabel('ROI'); ylabel('Correlation (Day 1 vs 13)');
+title([''], ['Per-ROI Activity Correlation Across Days']);
+set(gca,'FontSize',16);
+
+%%
+% Each frame: nROIs-dimensional vector. Correlate Day 1's vector at time t with Day 13's at same t.
+minFrames = min(size(z_day1,2), size(z_day13,2));
+corr_whole = diag(corr(z_day1(:,1:minFrames), z_day13(:,1:minFrames)));
+
+figure
+plot(corr_whole);
+xlabel('Frame'); ylabel('Correlation');
+title('Population Pattern Similarity Across Days');
+set(gca,'FontSize',8);
+
+

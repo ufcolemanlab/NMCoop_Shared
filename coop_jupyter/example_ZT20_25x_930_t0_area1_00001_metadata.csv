@@ -1,0 +1,58 @@
+field,value
+filename,ZT20_25x_930_t0_area1_00001.tif
+full_path,/Users/jcoleman/Documents/--LARGE DATA--/#VonRoemeling/ZT20 TIFs/ZT20_25x_930_t0_area1_00001.tif
+file_size_mb,231.76
+file_created_time,2026-01-21T17:24:06.886028
+file_modified_time,2026-01-21T16:52:46
+acquisition_datetime,2025-10-22T12:45:10.050000
+acquisition_epoch_raw,2025 10 22 12 45 10.050
+scanimage_version,2023.1.1
+scanimage_commit,'6fa08573b737b7ca5870c37cdb5781839365bdf6'
+scanimage_premium,true
+config_file,'C:\Users\ScanImage\Documents\MATLAB\resonant_config_1.cfg'
+user_file,'C:\Users\ScanImage\Documents\MATLAB\coop_25x_05202025.usr'
+host_os,macOS-15.6.1-arm64-arm-64bit
+host_machine,macbookpro.lan
+fov_source,tiff_resolution_tags
+pixels_per_line,512
+lines_per_frame,512
+image_width_px,512
+image_height_px,512
+fov_x_um,488.99173736572266
+fov_y_um,488.99173736572266
+um_per_pixel_x,0.9550619870424271
+um_per_pixel_y,0.9550619870424271
+num_frames,440
+frame_rate_hz,30.02276515151515
+timestamps_present,True
+channels_saved,[1 2]
+channel_names,{'Channel 1' 'Channel 2' 'Channel 3' 'Channel 4' 'Channel 5' 'Channel 6' 'Channel 7' 'Channel 8'}
+bit_depth,16
+samples_per_pixel,1
+planar_configuration,
+scanner_name,'RGG'
+scanner_resonant_enabled,True
+scanner_bidirectional,True
+scan_line_rate_hz,
+scan_line_rate_note,Resonant scanner line rate is hardware-defined and not written to TIFF metadata
+pockels_power_fractions,[0.24 0]
+pockels_power_limits,[1 1]
+pockels_lut_source,{'' ''}
+pockels_pz_adjust,[scanimage.types.BeamAdjustTypes.Exponential scanimage.types.BeamAdjustTypes.Exponential]
+pockels_flyback_blanking,true
+pockels_turnaround_blanking,true
+beam_powers_mw,[24 0]
+pmt_gains,[552 501]
+pmt_offsets,[-899 197 1439 787]
+log_avg_enable,
+log_avg_factor,1
+scan_avg_enable,
+scan_avg_factor,
+objective_name,
+scan_zoom_factor,1
+beam_power_mw,[24 0]
+beam_power_fraction,[0.24 0]
+acquisition_type,single_plane
+z_logged,no
+z_reference,roi_relative_zero
+z_note,Single-plane T-series; no StackManager/FastZ Z positions logged into TIFF

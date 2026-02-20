@@ -1,0 +1,30 @@
+name: scanimage_napari_env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+
+  # core
+  - numpy
+  - scipy
+  - pandas
+
+  # image IO + formats
+  - tifffile
+  - imageio
+  - aicsimageio
+  - zarr
+  - dask
+  - dask-image
+
+  # napari + GUI stack
+  - napari
+  - pyqt
+
+  # helpful tools
+  - scikit-image
+
+  # optional plotting/notebooks (nice for quick checks)
+  - matplotlib
+  - jupyterlab
+  - ipykernel

@@ -3,8 +3,20 @@ channels:
   - conda-forge
 dependencies:
   - python=3.11
+
+  # core numerics
   - numpy
+  - scipy
   - pandas
+
+  # imaging
   - tifffile
+  - scikit-image
+
+  # plotting
+  - matplotlib
+  - seaborn
+
+  # notebooks
   - jupyterlab
   - ipykernel
